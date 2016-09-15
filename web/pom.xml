@@ -44,6 +44,14 @@
             <groupId>io.heynow</groupId>
             <artifactId>stream-manager-model</artifactId>
         </dependency>
+        <dependency>
+            <groupId>io.heynow</groupId>
+            <artifactId>groovy-runner</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>io.heynow</groupId>
+            <artifactId>groovy-runner</artifactId>
+        </dependency>
     </dependencies>
 
     <build>
