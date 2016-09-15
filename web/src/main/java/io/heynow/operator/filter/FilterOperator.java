@@ -1,6 +1,7 @@
 package io.heynow.operator.filter;
 
 import io.heynow.operator.filter.groovy.GroovyScriptRun;
+import io.heynow.stream.manager.client.model.Note;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,14 +22,14 @@ public class FilterOperator {
     private GroovyScriptRun runner;
 
     @Filter(inputChannel = Sink.INPUT, outputChannel = INTERNAL)
-    public boolean filter(String message) {
-        log.info("filter " + message);
-        return runner.run(message);
+    public boolean filter(Note note) {
+        log.debug("filter " + note);
+        return runner.run(note.getPayload());
     }
 
     @Router(inputChannel = INTERNAL)
-    public String router(String message) {
-        log.info("router " + message);
-        return "ticktock2";
+    public String router(Note note) {
+        log.debug("router " + note);
+        return note.proceed().getName();
     }
 }

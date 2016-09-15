@@ -40,6 +40,10 @@
             <version>2.4.5</version>
             <scope>runtime</scope>
         </dependency>
+        <dependency>
+            <groupId>io.heynow</groupId>
+            <artifactId>stream-manager-model</artifactId>
+        </dependency>
     </dependencies>
 
     <build>

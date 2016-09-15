@@ -1,3 +1,3 @@
-spring.cloud.stream.bindings.input.destination: ticktock
+spring.cloud.stream.bindings.input.destination: filter-operator
 
 server.port: 8081
