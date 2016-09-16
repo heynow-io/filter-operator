@@ -24,7 +24,8 @@ public class FilterOperator {
     @Filter(inputChannel = Sink.INPUT, outputChannel = INTERNAL)
     public boolean filter(Note note) {
         log.debug("filter " + note);
-        return runner.run(note.getPayload());
+        //note.getProcessingModel().getCurrent().getId()
+        return runner.run("", note.getPayload());
     }
 
     @Router(inputChannel = INTERNAL)
