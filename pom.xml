@@ -10,6 +10,7 @@
     <version>0.0.1-SNAPSHOT</version>
     <modules>
         <module>web</module>
+        <module>groovy-runner</module>
     </modules>
 
     <name>filter-operator</name>
@@ -69,6 +70,11 @@
             <dependency>
                 <groupId>io.heynow</groupId>
                 <artifactId>stream-manager-model</artifactId>
+                <version>0.0.1-SNAPSHOT</version>
+            </dependency>
+            <dependency>
+                <groupId>io.heynow</groupId>
+                <artifactId>groovy-runner</artifactId>
                 <version>0.0.1-SNAPSHOT</version>
             </dependency>
             <dependency>

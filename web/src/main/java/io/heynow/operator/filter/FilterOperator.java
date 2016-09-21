@@ -1,6 +1,7 @@
 package io.heynow.operator.filter;
 
-import io.heynow.operator.filter.groovy.GroovyScriptRun;
+import com.google.common.collect.ImmutableMap;
+import io.heynow.groovy.GroovyScriptRunner;
 import io.heynow.stream.manager.client.model.Note;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -19,12 +20,13 @@ public class FilterOperator {
     private static final String INTERNAL = "internal";
 
     private Sink channels;
-    private GroovyScriptRun runner;
+    private GroovyScriptRunner runner;
 
     @Filter(inputChannel = Sink.INPUT, outputChannel = INTERNAL)
     public boolean filter(Note note) {
         log.debug("filter " + note);
-        return runner.run(note.getPayload());
+        String script = "something magic";
+        return runner.run(script, ImmutableMap.of("payload", note.getPayload()), Boolean.class);
     }
 
     @Router(inputChannel = INTERNAL)
