@@ -11,7 +11,6 @@ import org.codehaus.groovy.control.customizers.ASTTransformationCustomizer;
 import org.codehaus.groovy.control.customizers.CompilationCustomizer;
 import org.codehaus.groovy.control.customizers.ImportCustomizer;
 import org.codehaus.groovy.control.customizers.SecureASTCustomizer;
-import org.codehaus.groovy.tools.shell.util.NoExitSecurityManager;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnClass;
@@ -41,7 +40,6 @@ public class GroovyConfiguration {
 
     @Bean
     GroovyShell groovyShell(CompilerConfiguration configuration) {
-        System.setSecurityManager(new NoExitSecurityManager());
         return new GroovyShell(configuration);
     }
 
@@ -75,7 +73,7 @@ public class GroovyConfiguration {
     @Bean
     SecureASTCustomizer secureCustomizer() {
         SecureASTCustomizer secureASTCustomizer = new SecureASTCustomizer();
-        secureASTCustomizer.setReceiversClassesBlackList(Arrays.asList( Runtime.class));
+        secureASTCustomizer.setReceiversClassesBlackList(Arrays.asList( Runtime.class, System.class));
         secureASTCustomizer.setStaticStarImportsWhitelist(Arrays.asList(JAVA_LANG_MATH));
         return secureASTCustomizer;
     }
