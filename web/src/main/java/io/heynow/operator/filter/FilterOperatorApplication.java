@@ -1,11 +1,16 @@
 package io.heynow.operator.filter;
 
+import io.heynow.groovy.GroovyConfiguration;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.cloud.netflix.feign.EnableFeignClients;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Import;
 import org.springframework.scripting.groovy.GroovyScriptEvaluator;
 
 @SpringBootApplication
+@Import(value = GroovyConfiguration.class)
+@EnableFeignClients
 public class FilterOperatorApplication {
 
     @Bean
