@@ -1,4 +1,0 @@
-spring.cloud.stream.bindings.input.destination: filter-operator
-groovy.script.timeout: 100
-server.port: 8081
-service.stream-manager.url: http://localhost:8080

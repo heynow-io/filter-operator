@@ -2,7 +2,6 @@ package io.heynow.operator.filter;
 
 import com.google.common.collect.ImmutableMap;
 import io.heynow.groovy.GroovyScriptRunner;
-import io.heynow.stream.manager.client.EnableStreamManagerClient;
 import io.heynow.stream.manager.client.facade.StreamManagerClient;
 import io.heynow.stream.manager.client.model.Note;
 import lombok.extern.slf4j.Slf4j;
@@ -16,7 +15,6 @@ import java.util.Map;
 
 @Slf4j
 @EnableBinding(Sink.class)
-@EnableStreamManagerClient
 public class FilterOperator {
 
 
