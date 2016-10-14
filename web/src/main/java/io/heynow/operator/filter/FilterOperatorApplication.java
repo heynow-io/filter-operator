@@ -9,8 +9,9 @@ import org.springframework.context.annotation.Import;
 import org.springframework.scripting.groovy.GroovyScriptEvaluator;
 
 @SpringBootApplication
-@Import(value = GroovyConfiguration.class)
-@EnableFeignClients
+@EnableGroovyScriptRunner
+@EnableEurekaClient
+@EnableStreamManagerClient
 public class FilterOperatorApplication {
 
     @Bean
