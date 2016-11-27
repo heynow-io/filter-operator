@@ -4,8 +4,7 @@ VOLUME /tmp
 RUN mkdir -p /usr/src/app
 WORKDIR /usr/src/app
 ADD . /usr/src/app
-RUN bash -c 'chmod +x mvnw && ./mvnw install -DskipTests && cp target/web/filter-web-0.0.1-SNAPSHOT.jar /app.jar && rm -rf'
-/usr/src/app /root/.m2'
+RUN bash -c 'chmod +x mvnw && ./mvnw install -DskipTests && cp target/web/filter-web-0.0.1-SNAPSHOT.jar /app.jar && rm -rf /usr/src/app /root/.m2'
 
 EXPOSE 8080
 
